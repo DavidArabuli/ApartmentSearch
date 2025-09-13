@@ -1,0 +1,6 @@
+[submodule "ApartmentSearchBackend"]
+	path = ApartmentSearchBackend
+	url = C:/projects/ApartmentSearch/ApartmentSearchBackend
+[submodule "ApartmentSearchFrontend"]
+	path = ApartmentSearchFrontend
+	url = C:/projects/ApartmentSearch/ApartmentSearchFrontend

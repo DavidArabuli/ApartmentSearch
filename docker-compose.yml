@@ -1,0 +1,52 @@
+
+services:
+  frontend:
+    build:
+      context: ./ApartmentSearchFrontend
+      dockerfile: Dockerfile.frontend
+    depends_on:
+      - app_prod
+    ports:
+      - "5173:80" 
+
+  db:
+    image: mysql:8.0
+    env_file: ./.env
+    ports:
+      - "3307:3306"
+    volumes:
+      - db-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h db -p${MYSQL_ROOT_PASSWORD}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  app_prod:
+    build:
+      context: ./ApartmentSearchBackend
+      dockerfile: Dockerfile
+    env_file: ./ApartmentSearchBackend/.env
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8080:80"
+    volumes:
+      - cache-data:/var/www/html/cache
+
+  worker:
+    build:
+      context: ./ApartmentSearchBackend
+      dockerfile: docker/cron/Dockerfile.worker
+    env_file: ./ApartmentSearchBackend/.env
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - cache-data:/app/cache
+    restart: unless-stopped
+
+volumes:
+  db-data:
+  cache-data:

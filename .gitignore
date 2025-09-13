@@ -1,0 +1,55 @@
+# ----------------------
+# Node / Frontend
+# ----------------------
+node_modules/
+dist/
+dist-ssr/
+*.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ----------------------
+# PHP / Backend
+# ----------------------
+vendor/
+.env
+.env.*           
+logs/
+*.log
+analytics.json
+cache/           
+
+# ----------------------
+# Docker
+# ----------------------
+*.dockerignore
+docker-compose.override.yml
+docker-compose.override.*.yml
+.docker/
+volumes/
+tmp/
+
+# ----------------------
+# IDE / OS
+# ----------------------
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
+Thumbs.db
+
+# ----------------------
+# Build / Temp
+# ----------------------
+*.tsbuildinfo
+*.tscache
+*.out
+*.bak
+*.tmp
+*.swp
