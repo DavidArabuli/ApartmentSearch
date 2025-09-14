@@ -1,6 +1,6 @@
 [submodule "ApartmentSearchBackend"]
 	path = ApartmentSearchBackend
-	url = C:/projects/ApartmentSearch/ApartmentSearchBackend
+	url = https://github.com/DavidArabuli/ApartmentSearchBackend.git
 [submodule "ApartmentSearchFrontend"]
 	path = ApartmentSearchFrontend
-	url = C:/projects/ApartmentSearch/ApartmentSearchFrontend
+	url = https://github.com/DavidArabuli/ApartmentSearchFrontend.git
